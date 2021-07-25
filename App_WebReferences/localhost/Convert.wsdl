@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MyDog">
+        <s:complexType />
+      </s:element>
+      <s:element name="MyDogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MyDogResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FahrenheightToCelsius">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Fahrenheight" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FahrenheightToCelsiusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FahrenheightToCelsiusResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CelsiusToFahrenheight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Celsius" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CelsiusToFahrenheightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CelsiusToFahrenheightResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyDogSoapIn">
+    <wsdl:part name="parameters" element="tns:MyDog" />
+  </wsdl:message>
+  <wsdl:message name="MyDogSoapOut">
+    <wsdl:part name="parameters" element="tns:MyDogResponse" />
+  </wsdl:message>
+  <wsdl:message name="FahrenheightToCelsiusSoapIn">
+    <wsdl:part name="parameters" element="tns:FahrenheightToCelsius" />
+  </wsdl:message>
+  <wsdl:message name="FahrenheightToCelsiusSoapOut">
+    <wsdl:part name="parameters" element="tns:FahrenheightToCelsiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheightSoapIn">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheight" />
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheightSoapOut">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheightResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConvertSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MyDog">
+      <wsdl:input message="tns:MyDogSoapIn" />
+      <wsdl:output message="tns:MyDogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheightToCelsius">
+      <wsdl:input message="tns:FahrenheightToCelsiusSoapIn" />
+      <wsdl:output message="tns:FahrenheightToCelsiusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheight">
+      <wsdl:input message="tns:CelsiusToFahrenheightSoapIn" />
+      <wsdl:output message="tns:CelsiusToFahrenheightSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConvertSoap" type="tns:ConvertSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MyDog">
+      <soap:operation soapAction="http://tempuri.org/MyDog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheightToCelsius">
+      <soap:operation soapAction="http://tempuri.org/FahrenheightToCelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheight">
+      <soap:operation soapAction="http://tempuri.org/CelsiusToFahrenheight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertSoap12" type="tns:ConvertSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MyDog">
+      <soap12:operation soapAction="http://tempuri.org/MyDog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheightToCelsius">
+      <soap12:operation soapAction="http://tempuri.org/FahrenheightToCelsius" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheight">
+      <soap12:operation soapAction="http://tempuri.org/CelsiusToFahrenheight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Convert">
+    <wsdl:port name="ConvertSoap" binding="tns:ConvertSoap">
+      <soap:address location="http://localhost:60343/Convert.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConvertSoap12" binding="tns:ConvertSoap12">
+      <soap12:address location="http://localhost:60343/Convert.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
